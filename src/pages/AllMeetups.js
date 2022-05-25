@@ -22,8 +22,10 @@ const DUMMY_DATA = [
   ];
 
 function AllMeetupsPage() {
+    const { REACT_APP_API_URL } = process.env;
     return <section>
         <h1>All Meetup Page</h1>
+        <h3>{REACT_APP_API_URL}</h3>
         <MeetupList meetups={DUMMY_DATA} />
     </section>
     
