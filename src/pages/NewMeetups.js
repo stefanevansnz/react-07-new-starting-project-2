@@ -1,6 +1,8 @@
+import { useHistory } from 'react-router-dom';
 import NewMeetupForm from '../components/meetups/NewMeetupForm';
 
 function NewMeetupsPage() {
+    const history = useHistory();
     function addMeetupHandler(meetupData) {
         const { REACT_APP_API_URL } = process.env;
 
@@ -13,7 +15,9 @@ function NewMeetupsPage() {
                     'Content-Type': 'application/json'
                 } 
             }
-        );
+        ).then(() => {
+            history.replace('/')
+        });
     } 
 
     return <section>
